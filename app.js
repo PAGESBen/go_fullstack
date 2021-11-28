@@ -2,9 +2,19 @@
 
 const express = require('express')
 
+// On importe mongoose pour la base de données
+const mongoose = require('mongoose');
+
 // Creation de la constante qui contiendra l'application
 
 const app = express()
+
+// connection à la base de donnée via mongoose
+mongoose.connect('mongodb+srv://Roustiflaquette:Batman13100@cluster0.kuu7t.mongodb.net/ocrdb?retryWrites=true&w=majority',
+  { useNewUrlParser: true,
+    useUnifiedTopology: true })
+  .then(() => console.log('Connexion à MongoDB réussie !'))
+  .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 //on crée des middleware, l'attribut next permet de passer au middleware suivant : 
 
